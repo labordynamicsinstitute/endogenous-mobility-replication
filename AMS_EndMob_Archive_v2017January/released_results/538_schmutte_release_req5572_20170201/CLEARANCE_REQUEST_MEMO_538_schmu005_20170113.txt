@@ -1,0 +1,70 @@
+CLEARANCE REQUEST MEMO
+
+
+A.	GENERAL INFORMATION
+1)	If the disclosure avoidance analyst has questions about this clearance request, to whom should these questions be directed and what is this person's contact information?
+
+Ian Schmutte 607-351-4329 (cell) schmutte@uga.edu
+
+2)	What is the name of the directory for this clearance request?
+		RDC1-1: $D/20170113-schmu005
+
+3)	Generally describe the outputs contained in this clearance request.
+
+There is 2 files in $D/20170113-schmu005/OUTPUT that describes estimates from a two-way fixed-effects decomposition of log earnings (AKM decomposition) applied to the following data universe:
+
+    -Starting from the complete universe of records in the 2013 snapshot, we restrict attention to LEHD data from the states IL, IN, WI for the years 1999--2003.
+    -We further restrict to workers age 18-70 in at least one year from 1999-2003 and to employment on the worker's dominant job (the one with maximum earnings during the year).
+
+The requested output provides statistical summaries of the estimated components of earnings variance. 
+
+
+4)	Please state how these outputs are part of the approved research project. You may summarize and/or copy descriptions from your proposal with page references.
+
+Project 538 includes a research component in which wage outcomes are decomposed into person, firm and observable characteristic components. These models have been criticized for the assumption of exogeneous mobility and the assumption of separability of the worker and firm effect. These output files describe estimates of that model and provide diagnostic evidence on the validity of these assumptions. 
+
+B.	DESCRIPTIONS OF RESEARCH SAMPLES
+
+SAMPLE 1:
+
+All LEHD earnings records from IL, IN, or WI during the years 1999-2003 restricted to workers 18-70 years of age and to employment on a worker's dominant job (the one with the most annual earnings). The dataset follows Workers (PIK) = 16,000,000; Firms (SEIN) =712,500; Matches (PIK,SEIN) =27,310,000; Person-years (PIK, YEAR) = 60,120,000.
+
+
+SAMPLE 2:
+
+A match-level file. Each observation is associated with a unique pik-sein combination and records the average residual across all years during which there are reported earnings. SAMPLE 2 is further restricted to matches for which a transition is observed; that is, to matches such that the same worker was observed in a different dominant job in the year prior to the match start. This file contains 11,310,000 unique matches.
+
+SAMPLE 3:
+
+A balanced version of SAMPLE 1 that is restricted to workers who are employed in each year between 1999-2003. The sample is further restricted to workers who hold jobs with two distinct employers during this period and who are observed to move from one employer to the next in 2001. The dataset follows Workers (PIK) = 566,300; Firms (SEIN) =183,100; Matches (PIK,SEIN) =1,133,000; Person-years (PIK, YEAR) = 2,832,000. (see ../SUPPORT/01.40.event_histories.lst)
+
+
+RELATIONSHIP BETWEEN SAMPLES
+
+	SAMPLE 2 is constructed by collapsing SAMPLE 1 on the time dimension, so there is one observation per match, and then restricted to matches for which the same worker was observed in another match in the year before th present match started.
+
+	SAMPLE 3 is constructed by imposing the restrictions on SAMPLE 1 described above.
+
+
+
+C.	OUTPUT FILES
+
+FILE NUMBER: 1
+FILE NAME: $D/0170113-schmu005/OUTPUT/eventstudy_netlogwage.txt
+FILE DESCRIPTION: A TXT table whose columns correspond to the years 1999--2003. The input data are worker-level observations of either the log of labor market earnings, or the log of labor market earnings net of observed time-varying characteristics. Each worker changes jobs once in the five year period. We first assign each worker-year the corresponding AKM firm effect for the origin job (held in 1999 and 2000) and for the destination job (held in 2002 and 2003). We collapse the origin and destination firm effects to their corresponding quartiles in the overall distribution of firm effects. For each observation, we defined the cellid to be the pair (origin quartile, destination quartile). The proposed release files report the average log earnings or net log earnings for each cellidXyear.  The supporting information in ../SUPPORT/01.40.event_histories.lst shows the number of SEIN and PIK that contribute to each cellid. In each case, they are sufficiently large to preserve confidentiality.
+RESEARCH SAMPLE NUMBER: 3
+RESEARCH OUTPUT PROGRAM: $$P/programs/projects/networks/JBES_revision/testing/04_event_study/01.30.analyze_event_histories.sas
+
+FILE NUMBER: 2
+FILE NAME: $D/0170113-schmu005/OUTPUT/prevpsi_psi_delresid_all.txt
+FILE DESCRIPTION: A TXT table whose rows correspond to the origin decile of the firm effect in the AKM decomposition, and whose columns correspond to the destination decile. Entries are the mean change in the AKM residual between the origin and the destination job. These have been rounded to 4 signiticant digits. The supporting information in ../SUPPORT/01.40.event_histories.lst shows the number of SEIN and PIK that contribute to each cellid. In each case, they are sufficiently large to preserve confidentiality.
+RESEARCH SAMPLE NUMBER: 2
+RESEARCH OUTPUT PROGRAM: $$P/programs/projects/networks/JBES_revision/testing/02_test1/05.02.mobdiag_deltaresid.sas
+
+FILE NUMBER: 3
+FILE NAME: $D/20160322-schmu005/output/CLEARANCE_REQUEST_MEMO_538_schmu005_20170113.txt
+FILE DESCRIPTION: This memo.
+RESEARCH SAMPLE NUMBER: n/a
+
+
+

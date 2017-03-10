@@ -1,0 +1,50 @@
+CLEARANCE REQUEST MEMO
+
+
+A.	GENERAL INFORMATION
+1)	If the disclosure avoidance analyst has questions about this clearance request, to whom should these questions be directed and what is this person's contact information?
+
+Ian Schmutte 607-351-4329 (cell) schmutte@uga.edu
+
+2)	What is the name of the directory for this clearance request?
+		RDC1-1: $D/20170113-schmu005_b
+
+3)	Generally describe the outputs contained in this clearance request.
+
+The files in $D/20170113-schmu005_b/output contain statistical summaries from the Markov Chain Monte Carlo estimation of an endogenous mobility model on a subsample of the data universe described in $D/20170113-schmu005/CLEARANCE_REQUEST_MEMO_538_schmu005_20170113.txt. The sample is described in detail below.
+
+***Please note that this request asks for a table of covariances directly analagous to a table of correlations released with request 4926. These summaries are model output based on an already approved sample. Their release does not pose a complementary disclosure risk because they are just transformations of data moments already released.
+
+Please see the memo for request 4926 for a full description of the model which this output summarizes.
+
+
+
+4)	Please state how these outputs are part of the approved research project. You may summarize and/or copy descriptions from your proposal with page references.
+
+Project 538 includes a research component in which wage outcomes are decomposed into person, firm and observable characteristic components. These models have been criticized for the assumption of exogeneous mobility. These are estimates from a model of endogenous mobility fit to a 0.5% sample of the data from three states. These output files summarize the results of this estimation. 
+
+B.	DESCRIPTIONS OF RESEARCH SAMPLES
+Describe the sample(s) of data used in the output(s) you are requesting to release. For each sample, describe your selection criteria and describe how the sample differs from the source data and from other samples you have used. Take as much space as you need for each and add samples as needed.
+
+SAMPLE 1:
+A PIK-YEAR dataset is sampled from the universe of LEHD records for IL, IN, and WI between 1999-2004 described in $D/20160322-schmu005/CLEARANCE_REQUEST_MEMO_538_schmu005_20160322.txt. From that  universe, we extract the records associated with a 0.5% simple random sample of all individuals (PIKS) who worked in IL, IN, or WI during the years 1999-2004 for their dominant job (the one with the most annual earnings). The analysis sample has Workers (PIK) = 79,186, Firms (SEIN) =60,589 Matches (PIK,SEIN) =133,870, Person-years (PIK, YEAR) = 395,930. This is not a new sample from this universe. We used the same PIKs as were used to form the 0.5% sample used for estimation by MCMC in previous releases of this work.
+
+
+
+C.	OUTPUT FILES
+
+FILE NUMBER: 1
+FILE NAME: covMat.mat
+FILE DESCRIPTION: Text output file storing 10x10 matrix `covMean'.
+RESEARCH SAMPLE NUMBER: 1
+RESEARCH OUTPUT PROGRAM: Same as above
+These are the correlations among log earnings and the parts of earnings attributed to person, firm, match, and residual variation under the endogenous mobility model and their least squares equivalents. For each MCMC draw, we compute the correlation among these 10 variables using the augmented data. The output file contains the matrix `covMean' with the mean correlation matrix across the 9,968 samples.
+
+
+FILE NUMBER: 2
+FILE NAME: CLEARANCE_REQUEST_MEMO_538_schmu005_20170113_b.txt
+FILE DESCRIPTION: This memo
+RESEARCH SAMPLE NUMBER: NA
+RESEARCH OUTPUT PROGRAM: NA
+DISCLOSURE STATISTICS FILES: none required.
+

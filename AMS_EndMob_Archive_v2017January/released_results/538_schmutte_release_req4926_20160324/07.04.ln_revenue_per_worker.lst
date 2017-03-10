@@ -1,0 +1,803 @@
+The SAS System                                                                                   18:59 Thursday, March 3, 2016   1
+
+The REG Procedure
+Model: gibbs
+Dependent Variable: ln_rl_ems_c_imp1_Mean_Mean 
+
+Number of Observations Read                      60589
+Number of Observations Used                      39151
+Number of Observations with Missing Values       21438
+
+
+                             Analysis of Variance
+ 
+                                    Sum of           Mean
+Source                   DF        Squares         Square    F Value    Pr > F
+
+Model                     4     1327.56865      331.89216     247.32    <.0001
+Error                 39146          52531        1.34194                     
+Corrected Total       39150          53859                                    
+
+
+Root MSE              1.15842    R-Square     0.0246
+Dependent Mean        3.69449    Adj R-Sq     0.0245
+Coeff Var            31.35534                       
+
+
+                                 Parameter Estimates
+ 
+                                      Parameter       Standard
+Variable                      DF       Estimate          Error    t Value    Pr > |t|
+
+Intercept                      1        3.32319        0.06210      53.52      <.0001
+Theta_Gibbs_Mean               1        0.19354        0.01188      16.29      <.0001
+Psi_Gibbs_Mean                 1        0.23600        0.01230      19.19      <.0001
+Mu_Gibbs_Mean                  1        0.17722        0.01314      13.49      <.0001
+XBeta_Gibbs_Mean               1        0.04306        0.00683       6.30      <.0001
+The SAS System                                                                                   18:59 Thursday, March 3, 2016   2
+
+The REG Procedure
+Model: akm
+Dependent Variable: ln_rl_ems_c_imp1_Mean_Mean 
+
+Number of Observations Read                      60589
+Number of Observations Used                      39151
+Number of Observations with Missing Values       21438
+
+
+                             Analysis of Variance
+ 
+                                    Sum of           Mean
+Source                   DF        Squares         Square    F Value    Pr > F
+
+Model                     4     2392.51430      598.12858     454.94    <.0001
+Error                 39146          51466        1.31473                     
+Corrected Total       39150          53859                                    
+
+
+Root MSE              1.14662    R-Square     0.0444
+Dependent Mean        3.69449    Adj R-Sq     0.0443
+Coeff Var            31.03588                       
+
+
+                                 Parameter Estimates
+ 
+                                      Parameter       Standard
+Variable                      DF       Estimate          Error    t Value    Pr > |t|
+
+Intercept                      1        3.43882        0.04084      84.20      <.0001
+Theta_AKM_Mean                 1        0.06400        0.00600      10.67      <.0001
+Psi_AKM_Mean                   1        0.50619        0.01326      38.17      <.0001
+mu_akm_Mean                    1        0.01542        0.01736       0.89      0.3746
+Xbeta_AKM_Mean                 1        0.03742        0.00530       7.07      <.0001
+The SAS System                                                                                   18:59 Thursday, March 3, 2016   3
+
+                                                                                                       Theta_
+                                                                                                       Gibbs_     Psi_Gibbs_
+Obs    _MODEL_    _TYPE_    _NAME_                       _DEPVAR_              _RMSE_    Intercept      Mean         Mean
+
+  1     gibbs     PARMS                         ln_rl_ems_c_imp1_Mean_Mean    1.15842      3.32319     0.19354      0.23600 
+  2     gibbs     COV       Intercept           ln_rl_ems_c_imp1_Mean_Mean    1.15842      0.00386     0.00018      0.00008 
+  3     gibbs     COV       Theta_Gibbs_Mean    ln_rl_ems_c_imp1_Mean_Mean    1.15842      0.00018     0.00014     -0.00003 
+  4     gibbs     COV       Psi_Gibbs_Mean      ln_rl_ems_c_imp1_Mean_Mean    1.15842      0.00008    -0.00003      0.00015 
+  5     gibbs     COV       Mu_Gibbs_Mean       ln_rl_ems_c_imp1_Mean_Mean    1.15842      0.00010     0.00006      0.00003 
+  6     gibbs     COV       XBeta_Gibbs_Mean    ln_rl_ems_c_imp1_Mean_Mean    1.15842     -0.00042    -0.00002     -0.00001 
+  7     akm       PARMS                         ln_rl_ems_c_imp1_Mean_Mean    1.14662      3.43882      .            .      
+  8     akm       COV       Intercept           ln_rl_ems_c_imp1_Mean_Mean    1.14662      0.00167      .            .      
+  9     akm       COV       Theta_AKM_Mean      ln_rl_ems_c_imp1_Mean_Mean    1.14662     -0.00013      .            .      
+ 10     akm       COV       Psi_AKM_Mean        ln_rl_ems_c_imp1_Mean_Mean    1.14662      0.00009      .            .      
+ 11     akm       COV       mu_akm_Mean         ln_rl_ems_c_imp1_Mean_Mean    1.14662     -0.00003      .            .      
+ 12     akm       COV       Xbeta_AKM_Mean      ln_rl_ems_c_imp1_Mean_Mean    1.14662     -0.00021      .            .      
+
+                      XBeta_     ln_rl_ems_
+       Mu_Gibbs_      Gibbs_       c_imp1_       Theta_     Psi_AKM_     mu_akm_       Xbeta_
+Obs       Mean         Mean       Mean_Mean     AKM_Mean      Mean         Mean       AKM_Mean    implicate
+
+  1      0.17722     0.043058        -1          .            .           .            .              1    
+  2      0.00010    -0.000422         .          .            .           .            .              1    
+  3      0.00006    -0.000019         .          .            .           .            .              1    
+  4      0.00003    -0.000009         .          .            .           .            .              1    
+  5      0.00017    -0.000011         .          .            .           .            .              1    
+  6     -0.00001     0.000047         .          .            .           .            .              1    
+  7       .           .              -1         0.064000     0.50619     0.015419     0.037424        1    
+  8       .           .               .        -0.000132     0.00009    -0.000028    -0.000214        1    
+  9       .           .               .         0.000036    -0.00002     0.000004     0.000018        1    
+ 10       .           .               .        -0.000016     0.00018    -0.000004    -0.000011        1    
+ 11       .           .               .         0.000004    -0.00000     0.000302     0.000004        1    
+ 12       .           .               .         0.000018    -0.00001     0.000004     0.000028        1    
+The SAS System                                                                                   18:59 Thursday, March 3, 2016   4
+
+The REG Procedure
+Model: gibbs
+Dependent Variable: ln_rl_ems_c_imp2_Mean_Mean 
+
+Number of Observations Read                      60589
+Number of Observations Used                      39151
+Number of Observations with Missing Values       21438
+
+
+                             Analysis of Variance
+ 
+                                    Sum of           Mean
+Source                   DF        Squares         Square    F Value    Pr > F
+
+Model                     4     1350.77765      337.69441     254.15    <.0001
+Error                 39146          52014        1.32872                     
+Corrected Total       39150          53365                                    
+
+
+Root MSE              1.15270    R-Square     0.0253
+Dependent Mean        3.69648    Adj R-Sq     0.0252
+Coeff Var            31.18383                       
+
+
+                                 Parameter Estimates
+ 
+                                      Parameter       Standard
+Variable                      DF       Estimate          Error    t Value    Pr > |t|
+
+Intercept                      1        3.35368        0.06179      54.27      <.0001
+Theta_Gibbs_Mean               1        0.19330        0.01182      16.35      <.0001
+Psi_Gibbs_Mean                 1        0.24369        0.01224      19.91      <.0001
+Mu_Gibbs_Mean                  1        0.17244        0.01307      13.19      <.0001
+XBeta_Gibbs_Mean               1        0.03991        0.00680       5.87      <.0001
+The SAS System                                                                                   18:59 Thursday, March 3, 2016   5
+
+The REG Procedure
+Model: akm
+Dependent Variable: ln_rl_ems_c_imp2_Mean_Mean 
+
+Number of Observations Read                      60589
+Number of Observations Used                      39151
+Number of Observations with Missing Values       21438
+
+
+                             Analysis of Variance
+ 
+                                    Sum of           Mean
+Source                   DF        Squares         Square    F Value    Pr > F
+
+Model                     4     2403.41431      600.85358     461.54    <.0001
+Error                 39146          50962        1.30183                     
+Corrected Total       39150          53365                                    
+
+
+Root MSE              1.14098    R-Square     0.0450
+Dependent Mean        3.69648    Adj R-Sq     0.0449
+Coeff Var            30.86667                       
+
+
+                                 Parameter Estimates
+ 
+                                      Parameter       Standard
+Variable                      DF       Estimate          Error    t Value    Pr > |t|
+
+Intercept                      1        3.44241        0.04064      84.71      <.0001
+Theta_AKM_Mean                 1        0.06499        0.00597      10.89      <.0001
+Psi_AKM_Mean                   1        0.50665        0.01320      38.39      <.0001
+mu_akm_Mean                    1        0.01693        0.01728       0.98      0.3271
+Xbeta_AKM_Mean                 1        0.03724        0.00527       7.07      <.0001
+The SAS System                                                                                   18:59 Thursday, March 3, 2016   6
+
+The REG Procedure
+Model: gibbs
+Dependent Variable: ln_rl_ems_c_imp3_Mean_Mean 
+
+Number of Observations Read                      60589
+Number of Observations Used                      39151
+Number of Observations with Missing Values       21438
+
+
+                             Analysis of Variance
+ 
+                                    Sum of           Mean
+Source                   DF        Squares         Square    F Value    Pr > F
+
+Model                     4     1319.34431      329.83608     247.30    <.0001
+Error                 39146          52210        1.33373                     
+Corrected Total       39150          53529                                    
+
+
+Root MSE              1.15487    R-Square     0.0246
+Dependent Mean        3.69136    Adj R-Sq     0.0245
+Coeff Var            31.28579                       
+
+
+                                 Parameter Estimates
+ 
+                                      Parameter       Standard
+Variable                      DF       Estimate          Error    t Value    Pr > |t|
+
+Intercept                      1        3.37810        0.06191      54.57      <.0001
+Theta_Gibbs_Mean               1        0.19658        0.01185      16.59      <.0001
+Psi_Gibbs_Mean                 1        0.23801        0.01226      19.41      <.0001
+Mu_Gibbs_Mean                  1        0.17729        0.01310      13.54      <.0001
+XBeta_Gibbs_Mean               1        0.03665        0.00681       5.38      <.0001
+The SAS System                                                                                   18:59 Thursday, March 3, 2016   7
+
+The REG Procedure
+Model: akm
+Dependent Variable: ln_rl_ems_c_imp3_Mean_Mean 
+
+Number of Observations Read                      60589
+Number of Observations Used                      39151
+Number of Observations with Missing Values       21438
+
+
+                             Analysis of Variance
+ 
+                                    Sum of           Mean
+Source                   DF        Squares         Square    F Value    Pr > F
+
+Model                     4     2402.86506      600.71627     459.95    <.0001
+Error                 39146          51127        1.30605                     
+Corrected Total       39150          53529                                    
+
+
+Root MSE              1.14283    R-Square     0.0449
+Dependent Mean        3.69136    Adj R-Sq     0.0448
+Coeff Var            30.95945                       
+
+
+                                 Parameter Estimates
+ 
+                                      Parameter       Standard
+Variable                      DF       Estimate          Error    t Value    Pr > |t|
+
+Intercept                      1        3.46473        0.04070      85.12      <.0001
+Theta_AKM_Mean                 1        0.06293        0.00598      10.52      <.0001
+Psi_AKM_Mean                   1        0.50929        0.01322      38.53      <.0001
+mu_akm_Mean                    1        0.01205        0.01731       0.70      0.4863
+Xbeta_AKM_Mean                 1        0.03365        0.00528       6.38      <.0001
+The SAS System                                                                                   18:59 Thursday, March 3, 2016   8
+
+The REG Procedure
+Model: gibbs
+Dependent Variable: ln_rl_ems_c_imp4_Mean_Mean 
+
+Number of Observations Read                      60589
+Number of Observations Used                      39151
+Number of Observations with Missing Values       21438
+
+
+                             Analysis of Variance
+ 
+                                    Sum of           Mean
+Source                   DF        Squares         Square    F Value    Pr > F
+
+Model                     4     1292.51715      323.12929     239.42    <.0001
+Error                 39146          52833        1.34965                     
+Corrected Total       39150          54126                                    
+
+
+Root MSE              1.16174    R-Square     0.0239
+Dependent Mean        3.69076    Adj R-Sq     0.0238
+Coeff Var            31.47710                       
+
+
+                                 Parameter Estimates
+ 
+                                      Parameter       Standard
+Variable                      DF       Estimate          Error    t Value    Pr > |t|
+
+Intercept                      1        3.37181        0.06228      54.14      <.0001
+Theta_Gibbs_Mean               1        0.19373        0.01192      16.26      <.0001
+Psi_Gibbs_Mean                 1        0.23552        0.01233      19.10      <.0001
+Mu_Gibbs_Mean                  1        0.17184        0.01317      13.04      <.0001
+XBeta_Gibbs_Mean               1        0.03727        0.00685       5.44      <.0001
+The SAS System                                                                                   18:59 Thursday, March 3, 2016   9
+
+The REG Procedure
+Model: akm
+Dependent Variable: ln_rl_ems_c_imp4_Mean_Mean 
+
+Number of Observations Read                      60589
+Number of Observations Used                      39151
+Number of Observations with Missing Values       21438
+
+
+                             Analysis of Variance
+ 
+                                    Sum of           Mean
+Source                   DF        Squares         Square    F Value    Pr > F
+
+Model                     4     2363.20668      590.80167     446.80    <.0001
+Error                 39146          51763        1.32230                     
+Corrected Total       39150          54126                                    
+
+
+Root MSE              1.14991    R-Square     0.0437
+Dependent Mean        3.69076    Adj R-Sq     0.0436
+Coeff Var            31.15652                       
+
+
+                                 Parameter Estimates
+ 
+                                      Parameter       Standard
+Variable                      DF       Estimate          Error    t Value    Pr > |t|
+
+Intercept                      1        3.46273        0.04096      84.55      <.0001
+Theta_AKM_Mean                 1        0.06334        0.00602      10.53      <.0001
+Psi_AKM_Mean                   1        0.50419        0.01330      37.91      <.0001
+mu_akm_Mean                    1       -0.00418        0.01741      -0.24      0.8103
+Xbeta_AKM_Mean                 1        0.03380        0.00531       6.37      <.0001
+The SAS System                                                                                   18:59 Thursday, March 3, 2016  10
+
+The REG Procedure
+Model: gibbs
+Dependent Variable: ln_rl_ems_c_imp5_Mean_Mean 
+
+Number of Observations Read                      60589
+Number of Observations Used                      39151
+Number of Observations with Missing Values       21438
+
+
+                             Analysis of Variance
+ 
+                                    Sum of           Mean
+Source                   DF        Squares         Square    F Value    Pr > F
+
+Model                     4     1345.53590      336.38398     250.29    <.0001
+Error                 39146          52610        1.34395                     
+Corrected Total       39150          53956                                    
+
+
+Root MSE              1.15929    R-Square     0.0249
+Dependent Mean        3.69821    Adj R-Sq     0.0248
+Coeff Var            31.34730                       
+
+
+                                 Parameter Estimates
+ 
+                                      Parameter       Standard
+Variable                      DF       Estimate          Error    t Value    Pr > |t|
+
+Intercept                      1        3.34647        0.06214      53.85      <.0001
+Theta_Gibbs_Mean               1        0.20079        0.01189      16.89      <.0001
+Psi_Gibbs_Mean                 1        0.23415        0.01231      19.03      <.0001
+Mu_Gibbs_Mean                  1        0.17615        0.01315      13.40      <.0001
+XBeta_Gibbs_Mean               1        0.04098        0.00684       5.99      <.0001
+The SAS System                                                                                   18:59 Thursday, March 3, 2016  11
+
+The REG Procedure
+Model: akm
+Dependent Variable: ln_rl_ems_c_imp5_Mean_Mean 
+
+Number of Observations Read                      60589
+Number of Observations Used                      39151
+Number of Observations with Missing Values       21438
+
+
+                             Analysis of Variance
+ 
+                                    Sum of           Mean
+Source                   DF        Squares         Square    F Value    Pr > F
+
+Model                     4     2426.12793      606.53198     460.77    <.0001
+Error                 39146          51530        1.31635                     
+Corrected Total       39150          53956                                    
+
+
+Root MSE              1.14732    R-Square     0.0450
+Dependent Mean        3.69821    Adj R-Sq     0.0449
+Coeff Var            31.02370                       
+
+
+                                 Parameter Estimates
+ 
+                                      Parameter       Standard
+Variable                      DF       Estimate          Error    t Value    Pr > |t|
+
+Intercept                      1        3.44085        0.04086      84.20      <.0001
+Theta_AKM_Mean                 1        0.06455        0.00600      10.75      <.0001
+Psi_AKM_Mean                   1        0.50973        0.01327      38.41      <.0001
+mu_akm_Mean                    1        0.00718        0.01738       0.41      0.6795
+Xbeta_AKM_Mean                 1        0.03767        0.00530       7.11      <.0001
+The SAS System                                                                                   18:59 Thursday, March 3, 2016  12
+
+The REG Procedure
+Model: gibbs
+Dependent Variable: ln_rl_ems_c_imp6_Mean_Mean 
+
+Number of Observations Read                      60589
+Number of Observations Used                      39151
+Number of Observations with Missing Values       21438
+
+
+                             Analysis of Variance
+ 
+                                    Sum of           Mean
+Source                   DF        Squares         Square    F Value    Pr > F
+
+Model                     4     1296.82580      324.20645     242.19    <.0001
+Error                 39146          52403        1.33866                     
+Corrected Total       39150          53700                                    
+
+
+Root MSE              1.15700    R-Square     0.0241
+Dependent Mean        3.69474    Adj R-Sq     0.0240
+Coeff Var            31.31489                       
+
+
+                                 Parameter Estimates
+ 
+                                      Parameter       Standard
+Variable                      DF       Estimate          Error    t Value    Pr > |t|
+
+Intercept                      1        3.31222        0.06202      53.40      <.0001
+Theta_Gibbs_Mean               1        0.19237        0.01187      16.21      <.0001
+Psi_Gibbs_Mean                 1        0.23042        0.01228      18.76      <.0001
+Mu_Gibbs_Mean                  1        0.16055        0.01312      12.24      <.0001
+XBeta_Gibbs_Mean               1        0.04434        0.00682       6.50      <.0001
+The SAS System                                                                                   18:59 Thursday, March 3, 2016  13
+
+The REG Procedure
+Model: akm
+Dependent Variable: ln_rl_ems_c_imp6_Mean_Mean 
+
+Number of Observations Read                      60589
+Number of Observations Used                      39151
+Number of Observations with Missing Values       21438
+
+
+                             Analysis of Variance
+ 
+                                    Sum of           Mean
+Source                   DF        Squares         Square    F Value    Pr > F
+
+Model                     4     2457.17674      614.29418     469.28    <.0001
+Error                 39146          51243        1.30902                     
+Corrected Total       39150          53700                                    
+
+
+Root MSE              1.14412    R-Square     0.0458
+Dependent Mean        3.69474    Adj R-Sq     0.0457
+Coeff Var            30.96625                       
+
+
+                                 Parameter Estimates
+ 
+                                      Parameter       Standard
+Variable                      DF       Estimate          Error    t Value    Pr > |t|
+
+Intercept                      1        3.46176        0.04075      84.95      <.0001
+Theta_AKM_Mean                 1        0.06355        0.00599      10.61      <.0001
+Psi_AKM_Mean                   1        0.51504        0.01323      38.92      <.0001
+mu_akm_Mean                    1        0.00288        0.01733       0.17      0.8681
+Xbeta_AKM_Mean                 1        0.03452        0.00528       6.53      <.0001
+The SAS System                                                                                   18:59 Thursday, March 3, 2016  14
+
+The REG Procedure
+Model: gibbs
+Dependent Variable: ln_rl_ems_c_imp7_Mean_Mean 
+
+Number of Observations Read                      60589
+Number of Observations Used                      39151
+Number of Observations with Missing Values       21438
+
+
+                             Analysis of Variance
+ 
+                                    Sum of           Mean
+Source                   DF        Squares         Square    F Value    Pr > F
+
+Model                     4     1336.62379      334.15595     248.49    <.0001
+Error                 39146          52642        1.34475                     
+Corrected Total       39150          53978                                    
+
+
+Root MSE              1.15963    R-Square     0.0248
+Dependent Mean        3.69468    Adj R-Sq     0.0247
+Coeff Var            31.38661                       
+
+
+                                 Parameter Estimates
+ 
+                                      Parameter       Standard
+Variable                      DF       Estimate          Error    t Value    Pr > |t|
+
+Intercept                      1        3.32032        0.06216      53.41      <.0001
+Theta_Gibbs_Mean               1        0.20511        0.01189      17.24      <.0001
+Psi_Gibbs_Mean                 1        0.22535        0.01231      18.31      <.0001
+Mu_Gibbs_Mean                  1        0.17396        0.01315      13.23      <.0001
+XBeta_Gibbs_Mean               1        0.04355        0.00684       6.37      <.0001
+The SAS System                                                                                   18:59 Thursday, March 3, 2016  15
+
+The REG Procedure
+Model: akm
+Dependent Variable: ln_rl_ems_c_imp7_Mean_Mean 
+
+Number of Observations Read                      60589
+Number of Observations Used                      39151
+Number of Observations with Missing Values       21438
+
+
+                             Analysis of Variance
+ 
+                                    Sum of           Mean
+Source                   DF        Squares         Square    F Value    Pr > F
+
+Model                     4     2442.81959      610.70490     463.89    <.0001
+Error                 39146          51535        1.31649                     
+Corrected Total       39150          53978                                    
+
+
+Root MSE              1.14739    R-Square     0.0453
+Dependent Mean        3.69468    Adj R-Sq     0.0452
+Coeff Var            31.05509                       
+
+
+                                 Parameter Estimates
+ 
+                                      Parameter       Standard
+Variable                      DF       Estimate          Error    t Value    Pr > |t|
+
+Intercept                      1        3.42926        0.04087      83.91      <.0001
+Theta_AKM_Mean                 1        0.06487        0.00600      10.80      <.0001
+Psi_AKM_Mean                   1        0.51115        0.01327      38.52      <.0001
+mu_akm_Mean                    1    -0.00041172        0.01738      -0.02      0.9811
+Xbeta_AKM_Mean                 1        0.03873        0.00530       7.31      <.0001
+The SAS System                                                                                   18:59 Thursday, March 3, 2016  16
+
+The REG Procedure
+Model: gibbs
+Dependent Variable: ln_rl_ems_c_imp8_Mean_Mean 
+
+Number of Observations Read                      60589
+Number of Observations Used                      39151
+Number of Observations with Missing Values       21438
+
+
+                             Analysis of Variance
+ 
+                                    Sum of           Mean
+Source                   DF        Squares         Square    F Value    Pr > F
+
+Model                     4     1350.22876      337.55719     252.63    <.0001
+Error                 39146          52306        1.33617                     
+Corrected Total       39150          53656                                    
+
+
+Root MSE              1.15593    R-Square     0.0252
+Dependent Mean        3.69587    Adj R-Sq     0.0251
+Coeff Var            31.27620                       
+
+
+                                 Parameter Estimates
+ 
+                                      Parameter       Standard
+Variable                      DF       Estimate          Error    t Value    Pr > |t|
+
+Intercept                      1        3.35670        0.06196      54.17      <.0001
+Theta_Gibbs_Mean               1        0.20386        0.01186      17.19      <.0001
+Psi_Gibbs_Mean                 1        0.23327        0.01227      19.01      <.0001
+Mu_Gibbs_Mean                  1        0.17251        0.01311      13.16      <.0001
+XBeta_Gibbs_Mean               1        0.03963        0.00682       5.81      <.0001
+The SAS System                                                                                   18:59 Thursday, March 3, 2016  17
+
+The REG Procedure
+Model: akm
+Dependent Variable: ln_rl_ems_c_imp8_Mean_Mean 
+
+Number of Observations Read                      60589
+Number of Observations Used                      39151
+Number of Observations with Missing Values       21438
+
+
+                             Analysis of Variance
+ 
+                                    Sum of           Mean
+Source                   DF        Squares         Square    F Value    Pr > F
+
+Model                     4     2465.11617      616.27904     471.27    <.0001
+Error                 39146          51191        1.30769                     
+Corrected Total       39150          53656                                    
+
+
+Root MSE              1.14354    R-Square     0.0459
+Dependent Mean        3.69587    Adj R-Sq     0.0458
+Coeff Var            30.94108                       
+
+
+                                 Parameter Estimates
+ 
+                                      Parameter       Standard
+Variable                      DF       Estimate          Error    t Value    Pr > |t|
+
+Intercept                      1        3.44846        0.04073      84.67      <.0001
+Theta_AKM_Mean                 1        0.06633        0.00598      11.08      <.0001
+Psi_AKM_Mean                   1        0.51306        0.01323      38.79      <.0001
+mu_akm_Mean                    1       -0.00374        0.01732      -0.22      0.8288
+Xbeta_AKM_Mean                 1        0.03642        0.00528       6.90      <.0001
+The SAS System                                                                                   18:59 Thursday, March 3, 2016  18
+
+The REG Procedure
+Model: gibbs
+Dependent Variable: ln_rl_ems_c_imp9_Mean_Mean 
+
+Number of Observations Read                      60589
+Number of Observations Used                      39151
+Number of Observations with Missing Values       21438
+
+
+                             Analysis of Variance
+ 
+                                    Sum of           Mean
+Source                   DF        Squares         Square    F Value    Pr > F
+
+Model                     4     1311.70969      327.92742     244.57    <.0001
+Error                 39146          52488        1.34083                     
+Corrected Total       39150          53800                                    
+
+
+Root MSE              1.15794    R-Square     0.0244
+Dependent Mean        3.69384    Adj R-Sq     0.0243
+Coeff Var            31.34801                       
+
+
+                                 Parameter Estimates
+ 
+                                      Parameter       Standard
+Variable                      DF       Estimate          Error    t Value    Pr > |t|
+
+Intercept                      1        3.36274        0.06207      54.17      <.0001
+Theta_Gibbs_Mean               1        0.19455        0.01188      16.38      <.0001
+Psi_Gibbs_Mean                 1        0.23679        0.01229      19.26      <.0001
+Mu_Gibbs_Mean                  1        0.17349        0.01313      13.21      <.0001
+XBeta_Gibbs_Mean               1        0.03862        0.00683       5.65      <.0001
+The SAS System                                                                                   18:59 Thursday, March 3, 2016  19
+
+The REG Procedure
+Model: akm
+Dependent Variable: ln_rl_ems_c_imp9_Mean_Mean 
+
+Number of Observations Read                      60589
+Number of Observations Used                      39151
+Number of Observations with Missing Values       21438
+
+
+                             Analysis of Variance
+ 
+                                    Sum of           Mean
+Source                   DF        Squares         Square    F Value    Pr > F
+
+Model                     4     2454.66332      613.66583     467.86    <.0001
+Error                 39146          51345        1.31164                     
+Corrected Total       39150          53800                                    
+
+
+Root MSE              1.14527    R-Square     0.0456
+Dependent Mean        3.69384    Adj R-Sq     0.0455
+Coeff Var            31.00483                       
+
+
+                                 Parameter Estimates
+ 
+                                      Parameter       Standard
+Variable                      DF       Estimate          Error    t Value    Pr > |t|
+
+Intercept                      1        3.46745        0.04079      85.00      <.0001
+Theta_AKM_Mean                 1        0.06092        0.00599      10.17      <.0001
+Psi_AKM_Mean                   1        0.51722        0.01325      39.05      <.0001
+mu_akm_Mean                    1        0.00355        0.01734       0.20      0.8376
+Xbeta_AKM_Mean                 1        0.03363        0.00529       6.36      <.0001
+The SAS System                                                                                   18:59 Thursday, March 3, 2016  20
+
+The REG Procedure
+Model: gibbs
+Dependent Variable: ln_rl_ems_c_imp10_Mean_Mean 
+
+Number of Observations Read                      60589
+Number of Observations Used                      39151
+Number of Observations with Missing Values       21438
+
+
+                             Analysis of Variance
+ 
+                                    Sum of           Mean
+Source                   DF        Squares         Square    F Value    Pr > F
+
+Model                     4     1272.92634      318.23158     235.69    <.0001
+Error                 39146          52855        1.35019                     
+Corrected Total       39150          54128                                    
+
+
+Root MSE              1.16198    R-Square     0.0235
+Dependent Mean        3.69056    Adj R-Sq     0.0234
+Coeff Var            31.48512                       
+
+
+                                 Parameter Estimates
+ 
+                                       Parameter       Standard
+Variable                       DF       Estimate          Error    t Value    Pr > |t|
+
+Intercept                       1        3.40079        0.06229      54.60      <.0001
+Theta_Gibbs_Mean                1        0.19280        0.01192      16.18      <.0001
+Psi_Gibbs_Mean                  1        0.23591        0.01234      19.12      <.0001
+Mu_Gibbs_Mean                   1        0.17699        0.01318      13.43      <.0001
+XBeta_Gibbs_Mean                1        0.03400        0.00685       4.96      <.0001
+The SAS System                                                                                   18:59 Thursday, March 3, 2016  21
+
+The REG Procedure
+Model: akm
+Dependent Variable: ln_rl_ems_c_imp10_Mean_Mean 
+
+Number of Observations Read                      60589
+Number of Observations Used                      39151
+Number of Observations with Missing Values       21438
+
+
+                             Analysis of Variance
+ 
+                                    Sum of           Mean
+Source                   DF        Squares         Square    F Value    Pr > F
+
+Model                     4     2348.53180      587.13295     443.88    <.0001
+Error                 39146          51779        1.32271                     
+Corrected Total       39150          54128                                    
+
+
+Root MSE              1.15009    R-Square     0.0434
+Dependent Mean        3.69056    Adj R-Sq     0.0433
+Coeff Var            31.16311                       
+
+
+                                 Parameter Estimates
+ 
+                                       Parameter       Standard
+Variable                       DF       Estimate          Error    t Value    Pr > |t|
+
+Intercept                       1        3.48556        0.04096      85.09      <.0001
+Theta_AKM_Mean                  1        0.06127        0.00602      10.18      <.0001
+Psi_AKM_Mean                    1        0.50475        0.01330      37.94      <.0001
+mu_akm_Mean                     1        0.01693        0.01742       0.97      0.3309
+Xbeta_AKM_Mean                  1        0.03079        0.00531       5.80      <.0001
+The SAS System                                                                                   18:59 Thursday, March 3, 2016  22
+
+                              b_theta_   b_psi_  b_xbeta_   b_mu_                 v_theta_      v_psi_    v_xbeta_
+implicate  _MODEL_  b0_gibbs    gibbs    gibbs     gibbs    gibbs   v_b0_gibbs       gibbs       gibbs       gibbs  v_mu_gibbs
+
+     1      gibbs    3.32319   0.19354  0.23600  0.043058  0.17722  .003856147  .000141187  .000151231  .000046694  .000172571
+     2      gibbs    3.35368   0.19330  0.24369  0.039909  0.17244  .003818181  .000139797  .000149743  .000046235  .000170872
+     3      gibbs    3.37810   0.19658  0.23801  0.036652  0.17729  .003832564  .000140324  .000150307  .000046409  .000171515
+     4      gibbs    3.37181   0.19373  0.23552  0.037265  0.17184  .003878310  .000141998  .000152101  .000046963  .000173563
+     5      gibbs    3.34647   0.20079  0.23415  0.040977  0.17615  .003861941  .000141399  .000151459  .000046765  .000172830
+     6      gibbs    3.31222   0.19237  0.23042  0.044343  0.16055  .003846727  .000140842  .000150862  .000046580  .000172149
+     7      gibbs    3.32032   0.20511  0.22535  0.043545  0.17396  .003864238  .000141483  .000151549  .000046792  .000172933
+     8      gibbs    3.35670   0.20386  0.23327  0.039631  0.17251  .003839571  .000140580  .000150581  .000046494  .000171829
+     9      gibbs    3.36274   0.19455  0.23679  0.038619  0.17349  .003852985  .000141071  .000151107  .000046656  .000172429
+    10      gibbs    3.40079   0.19280  0.23591  0.033998  0.17699  .003879873  .000142056  .000152162  .000046982  .000173633
+
+                     b_theta_    b_psi_   b_exper_                              v_theta_                  v_exper_
+implicate   b0_akm      akm       akm        akm      b_mu_akm     v_b0_akm          akm    v_psi_akm          akm     v_mu_akm
+
+     1     3.43882   0.064000   0.50619   0.037424    0.015419   .001667874   .000035995   .000175881   .000028038   .000301525
+     2     3.44241   0.064987   0.50665   0.037236    0.016935   .001651512   .000035642   .000174155   .000027763   .000298567
+     3     3.46473   0.062932   0.50929   0.033651    0.012050   .001656861   .000035757   .000174719   .000027852   .000299534
+     4     3.46273   0.063337   0.50419   0.033800   -0.004179   .001677472   .000036202   .000176893   .000028199   .000303260
+     5     3.44085   0.064550   0.50973   0.037670    0.007178   .001669924   .000036039   .000176097   .000028072   .000301896
+     6     3.46176   0.063545   0.51504   0.034516    0.002878   .001660623   .000035839   .000175116   .000027916   .000300214
+     7     3.42926   0.064868   0.51115   0.038728   -0.000412   .001670109   .000036043   .000176116   .000028075   .000301929
+     8     3.44846   0.066326   0.51306   0.036423   -0.003744   .001658937   .000035802   .000174938   .000027887   .000299910
+     9     3.46745   0.060920   0.51722   0.033629    0.003555   .001663950   .000035910   .000175467   .000027972   .000300816
+    10     3.48556   0.061266   0.50475   0.030787    0.016934   .001678002   .000036214   .000176949   .000028208   .000303356
+The SAS System                                                                                   18:59 Thursday, March 3, 2016  23
+
+ 
+                  est_b0_ est_theta_ est_psi_ est_xbeta_ est_mu_    win_b0_ win_theta_   win_psi_ win_xbeta_    win_mu_
+Obs _TYPE_ _FREQ_  gibbs     gibbs     gibbs     gibbs    gibbs       gibbs    gibbs        gibbs    gibbs        gibbs
+
+ 1     0     10   3.35260   0.19666   0.23491  0.039800  0.17324 .003853054 .000141074 .000151110 .000046657 .000172432
+
+               est_                est_
+    est_b0_   theta_   est_psi_   exper_                           win_theta_   win_psi_   win_exper_                 bet_b0_
+Obs   akm       akm       akm       akm    est_mu_akm  win_b0_akm      akm         akm         akm     win_mu_akm       gibbs
+
+ 1  3.45420  0.063673   0.50973  0.035386  .006661313  .001665526  .000035945  .000175633  .000027998  .000301101  .000781954
+
+ 
+    bet_theta_      bet_psi_    bet_xbeta_       bet_mu_                  bet_theta_      bet_psi_    bet_exper_
+Obs    gibbs           gibbs       gibbs           gibbs    bet_b0_akm        akm              akm        akm       bet_mu_akm
+
+ 1  .000023068    .000023066    .000010900    .000024401    .000289828    .000002792    .000019467    .000006173    .000068539

@@ -1,0 +1,16 @@
+                                                           The SAS System                    09:19 Wednesday, September 16, 2009   1
+
+                                                         The FREQ Procedure
+
+                                          Statistics for Table of last_resid_dec by rh_cat
+
+                                      Statistic                       DF       Value      Prob
+                                      --------------------------------------------------------
+                                      Chi-Square                    8991     7438692    <.0001
+                                      Likelihood Ratio Chi-Square   8991     7447874    <.0001
+                                      Mantel-Haenszel Chi-Square       1        2949    <.0001
+                                      Phi Coefficient                        0.26631          
+                                      Contingency Coefficient                0.25734          
+                                      Cramer's V                             0.08877          
+
+                                                      Sample Size = 104885989

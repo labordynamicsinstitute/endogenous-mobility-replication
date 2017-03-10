@@ -1,0 +1,126 @@
+CLEARANCE REQUEST MEMO
+
+
+A.	GENERAL INFORMATION
+1)	If the disclosure avoidance analyst has questions about this clearance request, to whom should these questions be directed and what is this person's contact information?
+
+Ian Schmutte 607-351-4329 (cell) schmutte@uga.edu
+
+2)	What is the name of the directory for this clearance request?
+		RDC1-1: $D/20160322-schmu005_b
+
+3)	Generally describe the outputs contained in this clearance request.
+
+The files in $D/20160322-schmu005_b/output that contain statistical summaries from the Markov Chain Monte Carlo estimation of an endogenous mobility model on a subsample of the data universe described in $D/20160322-schmu005/CLEARANCE_REQUEST_MEMO_538_schmu005_20160322.txt. The sample is described in detail below. 
+
+The model has 12,087 free parameters. These were sampled from a posterior parameter distribution by MCMC. The outputs requested are summaries of the sampling distribution, including the mean, Monte Carlo standard error (MCSE), and, for some of the parameters, percentiles of the posterior distribution. The nature of the MCMC estimation procedure means that all observations in the estimation sample contribute to every model-based statistic. Therefore, rules governing tabular summaries are not germane for the model-based output. The relevant sample size for these statistics is the full set of 395,930 PIK-YEAR observations in SAMPLE 1, described below.I am not requesting the release of any tabular summaries of SAMPLE 1, to which tabular disclosure avoidance rules would apply.
+
+Twenty-nine of the parameters are the intercept and conditional contrasts of the log real wage for the 10 x 11 x 10 classification of workers into 10 ability types, firms into 10 productivity types (plus non-employment) and matches into 10 match types (undefined for non-employment), plus the residual variance. The reference class is the level 10 (highest level) for each classification. Since the classification is latent, it is not based on any observed variable in the data set. An additional 45 parameters control for time-varying characteristics specific to the match.
+
+The next 1,010 free parameters are the conditional probabilities of separating from the current employer (including non-employment) given the ability, productivity, and match type in the current job. Since the conditioning events are all latent except for non-employment, the effective sample sizes are the same as above.
+
+The next 10,900 parameters are the conditional probabilities of transiting from the current ability, productivity and match class to a new productivity class, given separation. Since the conditioning events are all latent except for non-employment, the effective sample sizes are the same as above.
+
+The next 918 parameters are associated with the probability of a worker having high ability, a firm having high productivity (9 free parameters each), and the probability of a worker-firm match being of high quality conditional on the latent ability and productivity of the agents (900 free parameters).
+
+
+
+4)	Please state how these outputs are part of the approved research project. You may summarize and/or copy descriptions from your proposal with page references.
+
+Project 538 includes a research component in which wage outcomes are decomposed into person, firm and observable characteristic components. These models have been criticized for the assumption of exogeneous mobility. These are estimates from a model of endogenous mobility fit to a 0.5% sample of the data from three states. These output files summarize the results of this estimation. 
+
+B.	DESCRIPTIONS OF RESEARCH SAMPLES
+Describe the sample(s) of data used in the output(s) you are requesting to release. For each sample, describe your selection criteria and describe how the sample differs from the source data and from other samples you have used. Take as much space as you need for each and add samples as needed.
+
+SAMPLE 1:
+A PIK-YEAR dataset is sampled from the universe of LEHD records for IL, IN, and WI between 1999-2004 described in $D/20160322-schmu005/CLEARANCE_REQUEST_MEMO_538_schmu005_20160322.txt. From that  universe, we extract the records associated with a 0.5% simple random sample of all individuals (PIKS) who worked in IL, IN, or WI during the years 1999-2004 for their dominant job (the one with the most annual earnings). The analysis sample has Workers (PIK) = 79,186, Firms (SEIN) =60,589 Matches (PIK,SEIN) =133,870, Person-years (PIK, YEAR) = 395,930. This is not a new sample from this universe. We used the same PIKs as were used to form the 0.5% sample used for estimation by MCMC in previous releases of this work.
+
+SAMPLE 2:
+A SEIN-YEAR dataset constructed from SAMPLE 1 as follows. First, we merge the estimated wage components from the endogenous mobility model to data on SEIN-level revenues, which come from the business register. The revenue data are multiply imputed, and we make use of all ten implicates. Using the merged file, we collapse the SEIN-level summaries of the earnings components using just jobs active in 2002. The result is a dataset containing 60,589 firms active during 2002.
+
+1)	RELATIONSHIP BETWEEN SAMPLES
+SAMPLE 2 is a direct collapse of SAMPLE 1 to an SEIN-level file. Notably, all SEINs appear in both samples, so there is no complementary disclosure risk.
+
+
+NARRATIVE:
+
+	Does not apply.
+
+
+C.	OUTPUT FILES
+
+FILE NUMBER: 1
+FILE NAME: wageParms_Out.mat,  
+FILE DESCRIPTION: MATLAB output file storing a 101x87 matrix `wageParms_Out'. 
+RESEARCH SAMPLE NUMBER: 1
+RESEARCH OUTPUT PROGRAM: Matlab script_run_postprocess.m
+These programs aggregate the results of 9,968 samples from the MCMC (Gibbs sampler) for the parameters of interest and for the equivalent parameters computed under the hypothesis of exogenous mobility. wageParms_Out.mat stores the output as a MATLAB matrix. The variables are the 87 parameters in the wage equation of our model (including non-free parameters determined by imposing linear restrictions after estimation). The data rows are configured as follows: row 1 contains the means from the 9,968 samples, row 2 contains the MCSE computed using initSeq.m, rows 3--101 contain the 1st through 99th percentile for each parameter in the 9,968 draw sample.
+
+FILE NUMBER: 2
+FILE NAME: corrMat.mat
+FILE DESCRIPTION: MATLAB output file storing two 10x10 matrices `corrMean' and `corrMCSE' and the tab-delimited text versions of these outputs. 
+RESEARCH SAMPLE NUMBER: 1
+RESEARCH OUTPUT PROGRAM: Same as above
+These are the correlations among log earnings and the parts of earnings attributed to person, firm, match, and residual variation under the endogenous mobility model and their least squares equivalents. For each MCMC draw, we compute the correlation among these 10 variables using the augmented data. The proposed file contains two output matrices: output matrix `corrMean' contains the mean correlation matrix across the 9,968 samples. The proposed output matrix `corrMCSE' contains the MCSE of each correlation coefficient computed using initSeq.m.
+
+FILE NUMBER: 3
+FILE NAME: betaOut.mat
+FILE DESCRIPTION: MATLAB output file storing two 6x5 matrices `betaMean' and `betaMCSE' 
+RESEARCH SAMPLE NUMBER: 1
+RESEARCH OUTPUT PROGRAM: Same as above .
+These are the estimated coefficients of a linear regression of the predicted person, firm, match, and residual wage variation from the endogenous mobility model onto their least squares counterparts.  For each MCMC draw, we regress the endogenous mobility values onto the least squares values. The proposed file contains two output matrices: betaMean and betaMCSE. The proposed output matrix `betaMean' contains the mean of the regression coefficients across the 9,968 samples. The 5 columns correspond to the 5 endgenous mobility variables. The 6 rows correspond to the 6 regression coefficients (5 least squares values plus a constant). The proposed output matrix `betaMCSE' contains the MCSE of each regression coefficient computed using initSeq.m, arranged conformably.
+
+FILE NUMBER: 4
+FILE NAME: latentProbOut.mat
+FILE DESCRIPTION: MATLAB output file storing two 10x2 stochastic vectors (piA_Out piB_Out) and two 10x10x10 arrays (piK_Mean and piK_MCSE). 
+RESEARCH SAMPLE NUMBER: 1
+RESEARCH OUTPUT PROGRAM: Same as above.
+The proposed release files contain estimates of latent class probabilities from our model. piA gives the probability of being in one of 10 worker heterogeneity classes, piB gives the probability of being in one of 10 employer heterogeneity classes, and piK gives the probability of a job being in one of 10 match heterogeneity classes, conditional on the latent type of the worker and the latent type of the firm in the match.
+
+FILE NUMBER: 5
+FILE NAME: gammaOut.mat
+FILE DESCRIPTION: MATLAB output file storing two 10X11X10 matrices (gammaMean and gammaMCSE).  
+RESEARCH SAMPLE NUMBER: 1
+RESEARCH OUTPUT PROGRAM: Same as above 
+These programs compute the mean and MCSE across all 9,968 samples of the separation probability for an employment relationship conditioned on the latent type of the worker, the employer, and the match. The proposed release file contains two (10x10x11) matrices: gammaMean and gammaMCSE. 
+
+FILE NUMBER: 6
+FILE NAME: deltaOut.mat
+FILE DESCRIPTION: MATLAB output file storing  two 10X11X10X11 matrices (deltaMean and deltaMCSE).  
+RESEARCH SAMPLE NUMBER: 1
+RESEARCH OUTPUT PROGRAM: Same as above 
+The proposed release file records the mean and MCSE across all 9,968 samples of the probability of transitioning into a job with an employer of a given type conditional on separation and on the type of the worker, firm, and match in the origin job.
+
+FILE NUMBER: 7
+FILE NAME: autocorr_Out.mat
+FILE DESCRIPTION: MATLAB output file storing a 2X3 matrix of estimated autocorrelation coefficients and associated MCSE  
+RESEARCH SAMPLE NUMBER: 1
+RESEARCH OUTPUT PROGRAM: Same as above 
+The proposed release file records the mean and MCSE across all 9,968 samples of within-worker autocorrelation in residuals at lag 1, 2, and 3.
+
+FILE NUMBER: 8
+FILE NAME: Analysis_Sample_Summary.txt
+FILE DESCRIPTION: MATLAB text file with redacted SAS summary of the analysis dataset.
+RESEARCH SAMPLE NUMBER: 1
+RESEARCH OUTPUT PROGRAM: Same as above
+
+FILE NUMBER: 9
+FILE NAME: DIC_Summary.txt
+FILE DESCRIPTION: Text file with summary of model specification test based on Deviance Information Criterion.
+RESEARCH SAMPLE NUMBER: 1
+RESEARCH OUTPUT PROGRAM: We ran 5 different specifications of our model using different combinations of latent heterogeneity classes for 1000 MCMC samples each. The proposed release file reports the Deviance Information Crirerion calculated on each of these runs.
+
+FILE NUMBER: 10
+FILE NAME: 07.04.ln_revenue_per_worker.lst; br_qrl_sein_reg_rubin_final.csv
+FILE DESCRIPTION: list file and associated CSV reporting the results of a regression estimated on multiply imputed data. 
+RESEARCH SAMPLE NUMBER: 2
+RESEARCH OUTPUT PROGRAM: The output files contain information on a regression of revenue on estimated components of wage heterogeneity across each of 10 multiply imputed datasets. The proposed output file also includes standard errors that include Rubin's correction for imputation uncertainty.
+
+
+FILE NUMBER: 11
+FILE NAME: CLEARANCE_REQUEST_MEMO_538_schmu005_2016_03_22_b.txt
+FILE DESCRIPTION: This memo
+RESEARCH SAMPLE NUMBER: NA
+RESEARCH OUTPUT PROGRAM: NA
+DISCLOSURE STATISTICS FILES: none required.
+

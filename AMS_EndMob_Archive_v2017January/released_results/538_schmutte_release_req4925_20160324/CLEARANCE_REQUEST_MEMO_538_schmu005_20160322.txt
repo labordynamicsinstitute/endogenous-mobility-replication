@@ -1,0 +1,99 @@
+CLEARANCE REQUEST MEMO
+
+
+A.	GENERAL INFORMATION
+1)	If the disclosure avoidance analyst has questions about this clearance request, to whom should these questions be directed and what is this person's contact information?
+
+Ian Schmutte 607-351-4329 (cell) schmutte@uga.edu
+
+2)	What is the name of the directory for this clearance request?
+		RDC1-1: $D/20160322-schmu005
+
+3)	Generally describe the outputs contained in this clearance request.
+
+There are 16 files in $D/20160322-schmu005/output that descibe estimates from a two-way fixed-effects decomposition of log earnings (AKM decomposition) applied to the following data universe:
+
+    -Starting from the complete universe of records in the 2013 snapshot, we restrict attention to LEHD data from the states IL, IN, WI for the years 1999--2003.
+    -We further restrict to workers age 18-70 in at least one year from 1999-2003 and to employment on the worker's dominant job (the one with maximum earnings during the year).
+
+The requested outputs provide (1) basic summaries of this data universe (2) statistical summaries of the estimated components of earnings variance. 
+
+
+4)	Please state how these outputs are part of the approved research project. You may summarize and/or copy descriptions from your proposal with page references.
+
+Project 538 includes a research component in which wage outcomes are decomposed into person, firm and observable characteristic components. These models have been criticized for the assumption of exogeneous mobility and the assumption of separability of the worker and firm effect. These output files describe estimates of that model and provide diagnostic evidence on the validity of these assumptions. 
+
+B.	DESCRIPTIONS OF RESEARCH SAMPLES
+
+SAMPLE 1:
+
+All LEHD earnings records from IL, IN, or WI during the years 1999-2004 restricted to workers 18-70 years of age and to employment on a worker's dominant job (the one with the most annual earnings). The dataset follows Workers (PIK) = 15998626, Firms (SEIN) =712494 Matches (PIK,SEIN) =27312733 Person-years (PIK, YEAR) = 60123894.
+
+
+SAMPLE 2:
+
+A match-level file. Each observation is associated with a unique pik-sein combination and records the average residual across all years during which there are reported earnings. SAMPLE 2 is further restricted to matches for which a transition is observed; that is, to matches such that the same worker was observed in a different dominant job in the year prior to the match start. This file contains 11314107 unique matches.
+
+SAMPLE 3:
+
+A firm-level file restricted to firms observed in 2001 and 2003. The dataset consists of 493,229 unique SEINs. The data in SAMPLE 3 is described in $D/20160322-schmu005/support/04.select_years.lst
+
+
+RELATIONSHIP BETWEEN SAMPLES
+
+	SAMPLE 2 is constructed by collapsing SAMPLE 1 on the time dimension, so there is one observation per match, and then restricted to matches for which the same worker was observed in another match in the year before th present match started.
+
+	SAMPLE 3 is constructed by collapsing SAMPLE 1 on the firm dimension so there is one observation per SEIN-YEAR and then restricted to years 2001 and 2003. The final SAMPLE 3 has one observataion per SEIN that describes change in the composition of worker heterogeneity and wage residuals between 2002 and 2003.
+
+
+
+C.	OUTPUT FILES
+FILE NUMBER: 1
+FILE NAME: $D/20160322-schmu005/output/Annearn_ILINWI_summary.txt
+FILE DESCRIPTION: descriptive statistics for the input data used to create human capital estimates by CG$TEMPLOC/interwork/abowd001/networks/outputs/AKM_Universe_variables.csv. 
+RESEARCH SAMPLE NUMBER: 1
+RESEARCH OUTPUT PROGRAM: $$P/programs/projects/networks/JBES_revision/akm/data_prep/01.01.AKM_Universe.lst
+
+
+FILE NUMBER: 2
+FILE NAME: $D/20160322-schmu005/output/s02_CG_est_JBES.log  (source: 
+FILE DESCRIPTION: Contains information from estimation of the AKM model by preconditioned conjugate gradient algorithm in MATLAB. The output includes information on model fit (R2, RMSE), number of groups used for the estimation, number of workers, firms, and observations. Also includes the correlation matrix of estimated heterogeneity components and two associated variance decompositions.
+RESEARCH SAMPLE NUMBER: 1
+RESEARCH OUTPUT PROGRAM: redacted version of $P/programs/projects/networks/JBES_revision/akm/cg_code/s02_CG_est_JBES.log. See also ./support/06.mobdiag_support.lst
+COMMENT: Beginning at line 60 are two tables. The first reports the share of observations in the sample within cells defined as interactions between deciles of the distribution of firm effects and worker effects. By construction, the entries sum to 0.1 across rows and across columns. The second table reports the average residual across observations within cells that are defined the same way.
+That the number of workers and firms contributing to each cell is above the disclosure threshold is supported by ./support/06.mobdiag_support.lst, which shows the cell sizes are sufficiently large using a much sparser disaggregation of the data. 
+
+
+
+FILE NUMBER: 3
+FILE NAME: $D/20160322-schmu005/output/03.mean_resid_trans_analysis1.lst
+FILE DESCRIPTION: Model fit statistics from a contingency table analysis of data from sample 2.
+RESEARCH SAMPLE NUMBER: 2
+RESEARCH OUTPUT PROGRAM: Same as above .
+
+
+FILE NUMBER: 4
+FILE NAME: $D/20160322-schmu005/output/prevpsi_psi_prevresid_all.csv  (SUPPORT: ./02_test1/05.mobdiag.sas)
+FILE DESCRIPTION: Tables of average mean residual (AKM match effect) on origin job within cells defined by decile of origin and destination job.
+RESEARCH SAMPLE NUMBER: 2
+RESEARCH OUTPUT PROGRAM: $D/20160322-schmu005/support/06.mobdiag_support.lst gives the number of unique PIKs and SEINs within each cell
+
+
+FILE NUMBER: 5-14
+FILE NAME: $D/20160322-schmu005/output/prevpsi_psi_prevresid_thetadecX.csv  (X=1,..,10)
+FILE DESCRIPTION: Tables of average mean residual (AKM match effect) on origin job within cells defined by decile of origin and destination job. Restricted to observations where theta decile = X
+RESEARCH SAMPLE NUMBER: 2
+RESEARCH OUTPUT PROGRAM: $D/20160322-schmu005/support/06.mobdiag_support.lst gives the number of unique PIKs and SEINs within each cell
+
+FILE NUMBER: 15
+FILE NAME: $D/20160322-schmu005/output/productive_workforce_test.txt
+FILE DESCRIPTION: Text file containing chi-square test statistics and associated degrees of freedom and p-values from a test applied to all observations from SAMPLE3. See $P/programs/projects/networks/JBES_revision/testing/03_test2/05.test2.fdemon.sas and ./06.test2.wdenom.sas for detailed computation of the test statistic.
+RESEARCH SAMPLE NUMBER: 3
+
+FILE NUMBER: 16
+FILE NAME: $D/20160322-schmu005/output/CLEARANCE_REQUEST_MEMO_538_schmu005_20160322.txt
+FILE DESCRIPTION: This memo.
+RESEARCH SAMPLE NUMBER: n/a
+
+
+

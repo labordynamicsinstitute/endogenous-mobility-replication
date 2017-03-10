@@ -1,0 +1,34 @@
+Productive workforce test statistics
+22 March 2016
+see $P/programs/projects/networks/JBES_revision/testing/03_test2/05.test2.fdemon.sas and ./06.test2.wdenom.sas
+
+Unweighted:
+   x_2
+
+4695.9514
+
+
+    df
+
+      900
+
+
+   prob
+
+        0
+
+
+Weighted by Employment:
+   x_2
+
+34950.161
+
+
+    df
+
+      900
+
+
+   prob
+
+        0

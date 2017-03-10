@@ -1,0 +1,25 @@
+SOURCE: $P/programs/projects/networks/JBES_revision/akm/data_prep/01.01.AKM_Universe.lst
+
+These are descriptive statistics for the input data used to create human capital estimates by CG$TEMPLOC/interwork/abowd001/networks/outputs/AKM_Universe_variables.csv
+
+The MEANS Procedure
+
+Variable            N      N Miss            Mean         Std Dev      
+-----------------------------------------------------------------------
+log_earn     60123894           0       9.6294693       1.4071456      
+year         60123894           0         2001.00       1.4113023      
+age          60123894           0      39.0895725      12.8613675      
+black        60123894           0       0.1045794       0.3060108      
+hispanic     60123894           0       0.0741584       0.2620286      
+female       60123894           0       0.4836823       0.4997337      
+sixq1        60123894           0       0.0414449       0.1993169      
+sixq2        60123894           0       0.0911565       0.2878315      
+sixq3        60123894           0       0.0989444       0.2985874      
+sixq4        60123894           0       0.1039144       0.3051495      
+sixq5        60123894           0       0.1129607       0.3165448      
+sixq6        60123894           0       0.5515790       0.4973325      
+sixqleft     60123894           0       0.6869283       0.4637433      
+sixqright    60123894           0       0.6972419       0.4594514      
+sixqinter    60123894           0       0.0203451       0.1411777      
+sixq4th      60123894           0       0.8708633       0.3353512      
+-----------------------------------------------------------------------
