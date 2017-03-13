@@ -1,5 +1,7 @@
 # Replication archive for "Modeling Endogenous Mobility in Earnings Determination"
-This provides code to replicate the analysis in "Modeling Endogenous Mobility in Earnings Determination" by John M. Abowd, Kevin L. McKinney, and Ian M. Schmutte (working paper version).
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.376600.svg)](https://doi.org/10.5281/zenodo.376600)
+
+This provides code to replicate the analysis in "Modeling Endogenous Mobility in Earnings Determination" by John M. Abowd, Kevin L. McKinney, and Ian M. Schmutte [http://digitalcommons.ilr.cornell.edu/ldi/28/](working paper version).
 
 Archive of SAS and MATLAB code to build the analysis data, estimate the AKM and endogenous mobility models, calculate test statistics, and generate statistical summaries described in the article. The archive also includes the output files released by the Census Bureau after disclosure avoidance review. 
 
